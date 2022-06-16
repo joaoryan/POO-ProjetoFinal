@@ -22,6 +22,7 @@ public class instrumentoDAO extends connectionDAO {
             pst.setString(4, character.race);
             pst.execute();
             sucesso = true;
+
         } catch(SQLException exc) {
             System.out.println("Erro: " + exc.getMessage());
             sucesso = false;
@@ -54,7 +55,6 @@ public class instrumentoDAO extends connectionDAO {
                     sucesso = false;
                 } else {
                     instrumentoAux = new Personagem(rs.getString("name"), rs.getString("level"), rs.getString("classCharacter"), rs.getString("race")){};
-
                     System.out.println("nome = " + instrumentoAux.name);
                     System.out.println("marca = " + instrumentoAux.level);
                     System.out.println("idade = " + instrumentoAux.classCharacter);
@@ -111,7 +111,7 @@ public class instrumentoDAO extends connectionDAO {
             pst.setString(2, character.level);
             pst.setString(3, character.classCharacter);
             pst.setString(4, character.race);
-            pst.setInt(4, id);
+            pst.setInt(5, id);
             pst.execute();
             sucesso = true;
 

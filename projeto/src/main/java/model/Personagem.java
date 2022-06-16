@@ -1,7 +1,7 @@
 package model;
 
 public abstract class Personagem {
-
+    public  int id;
     public String name;
     public String level;
     public String classCharacter;

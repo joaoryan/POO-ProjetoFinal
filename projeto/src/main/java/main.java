@@ -11,8 +11,8 @@ public class main {
         System.out.print("##--Teste Estrutura de Menu--##\n\n");
         System.out.print("|-----------------------------|\n");
         System.out.print("| Opcao 1 - Novo Cadastro     |\n");
-        System.out.print("| Opcao 2 - Deletar cadastro  |\n");
-        System.out.print("| Opcao 3 - Buscar            |\n");
+        System.out.print("| Opcao 2 - Deletar pelo id   |\n");
+        System.out.print("| Opcao 3 - Buscar pelo id    |\n");
         System.out.print("| Opcao 4 - Atualizar         |\n");
         System.out.print("|-----------------------------|\n");
         System.out.print("Digite uma opcao: ");
@@ -29,6 +29,7 @@ public class main {
                 System.out.print("Digite uma opcao de sua classe: ");
                 int classeOpcao = teclado.nextInt();
                 String classCharacter = null;
+
                 switch (classeOpcao) {
                     case 1:
                         classCharacter = "Mago";
@@ -46,21 +47,22 @@ public class main {
                         System.out.print("\nOpção Inválida!");
                         break;
                 }
+                String confirm= teclado.nextLine();
 
-                System.out.print("nome: ");
+                System.out.println("Agora que vc escolheu sua classe diga seu nome e sua raca:");
+                System.out.print("Digite seu nome:");
                 String name = teclado.nextLine();
-
-                System.out.println("raca: ");
+                System.out.print("Digite sua raca:");
                 String race = teclado.nextLine();
 
                 System.out.print("Me diga o tipo de arma você utiliza:");
                 String tipo = teclado.nextLine();
-                System.out.println("qual o nome de sua arma:");
+                System.out.print("qual o nome de sua arma:");
                 String nomeArma = teclado.nextLine();
 
                 System.out.print("Diga o tipo de sua montaria:");
                 String tipoMontaria = teclado.nextLine();
-                System.out.println("Descreva o nome de sua montaria: ");
+                System.out.print("Descreva o nome de sua montaria: ");
                 String nomeMontaria = teclado.nextLine();
 
                 if(classCharacter == "Cavaleiro"){
@@ -71,21 +73,31 @@ public class main {
                     Mago mago1 = new Mago(name,"1","mago", race);
                     iDAO.insertCharacter(mago1);
                 }
-                else if (classCharacter == "model.Samurai"){
+                else if (classCharacter == "Samurai"){
                     Samurai samurai1 = new Samurai(name,"1","samurai", race);
-                    iDAO.insertCharacter(samurai1);
+                    System.out.println(iDAO.insertCharacter(samurai1));
+
                 }
                 else {
                     System.out.println("Essa classe não existe nesté mundo");
                 }
+
+
+
+
+
                 break;
 
             case 2:
-                iDAO.deletarInstrumento(1);
+                System.out.println("Digite o id que deseja deletar: ");
+                int idDelete = teclado.nextInt();
+                iDAO.deletarInstrumento(idDelete);
                 break;
 
             case 3:
-                iDAO.buscarInstrumentoPorId(3);
+                System.out.println("Digite o id que deseja buscar: ");
+                int idBuscar = teclado.nextInt();
+                iDAO.buscarInstrumentoPorId(idBuscar);
                 break;
 
             case 4:
@@ -116,7 +128,7 @@ public class main {
                         System.out.print("\nOpção Inválida!");
                         break;
                 }
-
+                String confirmEdit= teclado.nextLine();
                 System.out.print("nome que deseja editar: ");
                 String nameEdit = teclado.nextLine();
 
@@ -131,7 +143,7 @@ public class main {
                     Mago magoEdit = new Mago(nameEdit,"1","mago", raceEdit);
                     iDAO.atualizarInstrumento(idEdit, magoEdit);
                 }
-                else if (classCharacterEdit == "model.Samurai"){
+                else if (classCharacterEdit == "Samurai"){
                     Samurai samuraiEdit = new Samurai(nameEdit,"1","samurai", raceEdit);
                     iDAO.atualizarInstrumento(idEdit, samuraiEdit);
                 }
@@ -139,7 +151,6 @@ public class main {
                     System.out.println("Essa classe não existe nesté mundo");
                 }
                 break;
-
 
             default:
                 System.out.print("\nOpcao Inválida!");
