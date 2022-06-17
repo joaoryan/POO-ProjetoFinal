@@ -2,7 +2,7 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Habilidade`
+-- Table `mydb`.`model.Habilidade`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Skill` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`characterTable` (
  );
 
 -- -----------------------------------------------------
--- Table `mydb`.`Montaria`
+-- Table `mydb`.`model.Montaria`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Mount` (
   `id` INT NOT NULL AUTO_INCREMENT,

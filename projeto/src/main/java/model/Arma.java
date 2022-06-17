@@ -1,3 +1,5 @@
+package model;
+
 public class Arma {
     private String type;
     private String name;

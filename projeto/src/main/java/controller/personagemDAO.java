@@ -1,11 +1,10 @@
-package dao;
+package controller;
 
 import model.Personagem;
-import model.character;
 
 import java.sql.SQLException;
 
-public class instrumentoDAO extends connectionDAO {
+public class personagemDAO extends connectionDAO {
 
     //DAO - Data Access Object
     boolean sucesso = false; //Para saber se funcionou
@@ -38,7 +37,7 @@ public class instrumentoDAO extends connectionDAO {
         return sucesso;
     }
 
-    public Personagem buscarInstrumentoPorId(int id) {
+    public Personagem buscarCharacterId(int id) {
         connectToDB();
         Personagem instrumentoAux = null;
         String sql = "SELECT * FROM characterTable WHERE id = ?";
@@ -56,9 +55,9 @@ public class instrumentoDAO extends connectionDAO {
                 } else {
                     instrumentoAux = new Personagem(rs.getString("name"), rs.getString("level"), rs.getString("classCharacter"), rs.getString("race")){};
                     System.out.println("nome = " + instrumentoAux.name);
-                    System.out.println("marca = " + instrumentoAux.level);
-                    System.out.println("idade = " + instrumentoAux.classCharacter);
-                    System.out.println("idade = " + instrumentoAux.race);
+                    System.out.println("level = " + instrumentoAux.level);
+                    System.out.println("classe = " + instrumentoAux.classCharacter);
+                    System.out.println("raca = " + instrumentoAux.race);
                     System.out.println("--------------------------------");
                 }
             }
@@ -77,7 +76,7 @@ public class instrumentoDAO extends connectionDAO {
         return instrumentoAux;
     }
 
-    public boolean deletarInstrumento(int id) {
+    public boolean deletarCharacter(int id) {
         connectToDB();
         String sql = "DELETE FROM characterTable where id=?";
 
@@ -101,7 +100,7 @@ public class instrumentoDAO extends connectionDAO {
         return sucesso;
     }
 
-    public boolean atualizarInstrumento(int id, Personagem character) {
+    public boolean atualizarCharacter(int id, Personagem character) {
         connectToDB();
         String sql = "UPDATE characterTable SET name=? ,level=? ,classCharacter=? ,race=? where id=?";
 

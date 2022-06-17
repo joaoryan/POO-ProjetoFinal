@@ -1,3 +1,5 @@
+package model;
+
 public class Montaria {
     private String nome;
     private  int level;

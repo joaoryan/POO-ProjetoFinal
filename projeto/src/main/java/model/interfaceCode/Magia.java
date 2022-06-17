@@ -1,3 +1,5 @@
+package model.interfaceCode;
+
 public interface Magia {
     public void usaFeitico(int dano);
 
